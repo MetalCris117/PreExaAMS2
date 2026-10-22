@@ -1,0 +1,30 @@
+@startuml
+
+entity "usuario" as usuarios {
+    * id : INT <<PK>>
+    --
+    nombre : VARCHAR(100)
+    email : VARCHAR(150)
+}
+
+entity "producto" as productos {
+    * id : INT <<PK>>
+    --
+    nombre : VARCHAR(150)
+    precio : DOUBLE
+}
+
+entity "orden" as ordenes {
+    * id : INT <<PK>>
+    --
+    usuario_id : INT <<FK>>
+    producto_id : INT <<FK>>
+    cantidad : INT
+    fecha_orden : DATETIME
+}
+
+usuarios ||--o{ ordenes : realiza
+productos ||--o{ ordenes : incluye
+
+@enduml
+

@@ -1,0 +1,33 @@
+@startuml
+left to right direction
+
+class Usuario {
+    - id : int
+    - name : String
+    - email : String
+    + registrarse()
+    + iniciarSesion()
+    + consultarHistorial()
+}
+
+class Producto {
+    - id : int
+    - name : String
+    - price : decimal
+    + consultarCatalogo()
+}
+
+class Orden {
+    - id : int
+    - user_id : int
+    - product_id : int
+    - quantity : int
+    - order_date : DateTime
+    + crearPedido()
+    + consultarPedido()
+}
+
+Usuario -- Orden : realiza
+Producto -- Orden : corresponde a
+
+@enduml
